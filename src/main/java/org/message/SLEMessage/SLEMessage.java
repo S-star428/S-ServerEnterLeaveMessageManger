@@ -86,7 +86,19 @@ public class SLEMessage extends JavaPlugin implements Listener, TabCompleter {
                 sender.sendMessage(ChatColor.YELLOW + "=====================" + ChatColor.GOLD + " [ 도움말 ] " + ChatColor.YELLOW + "=====================");
                 sender.sendMessage(ChatColor.AQUA + " ▶ " + ChatColor.GREEN + "/메세지설정 입장 [메세지]" + ChatColor.WHITE + " - 입장 메시지를 설정합니다.");
                 sender.sendMessage(ChatColor.AQUA + " ▶ " + ChatColor.GREEN + "/메세지설정 퇴장 [메세지]" + ChatColor.WHITE + " - 퇴장 메시지를 설정합니다.");
+                sender.sendMessage(ChatColor.AQUA + " ▶ " + ChatColor.GREEN + "/메세지설정 확인" + ChatColor.WHITE + " - 설정한 입장, 퇴장 메세지를 확인합니다.");
                 sender.sendMessage(ChatColor.WHITE + "플레이어 닉네임은 {player} 이걸로 입력해주어야 합니다.");
+                sender.sendMessage(ChatColor.YELLOW + "====================================================");
+                return true;
+            }
+
+            if (args.length == 1 && args[0].equalsIgnoreCase("확인")) {
+                String joinMessage = config.getString("joinMessage", "입장 메시지가 설정되지 않았습니다.");
+                String quitMessage = config.getString("quitMessage", "퇴장 메시지가 설정되지 않았습니다.");
+
+                sender.sendMessage(ChatColor.YELLOW + "=====================" + ChatColor.GOLD + " [ 설정된 메시지 ] " + ChatColor.YELLOW + "=====================");
+                sender.sendMessage(ChatColor.GREEN + "✔ 현재 입장 메시지: " + ChatColor.WHITE + ChatColor.translateAlternateColorCodes('&', joinMessage));
+                sender.sendMessage(ChatColor.GREEN + "✔ 현재 퇴장 메시지: " + ChatColor.WHITE + ChatColor.translateAlternateColorCodes('&', quitMessage));
                 sender.sendMessage(ChatColor.YELLOW + "====================================================");
                 return true;
             }
