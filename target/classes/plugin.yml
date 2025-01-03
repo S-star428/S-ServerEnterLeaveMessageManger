@@ -1,0 +1,7 @@
+name: S-ELMessage
+version: 1.0
+main: org.message.SLEMessage.SLEMessage
+api-version: 1.21
+commands:
+  메세지설정:
+    description: 서버의 입장, 퇴장 메세지를 설정합니다.
